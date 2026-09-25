@@ -322,7 +322,7 @@ em { font-weight: 500; }
     inset: 0;
     background: linear-gradient(0deg, rgba(28,19,16,.95) 0%, rgba(28,19,16,.22) 54%, rgba(28,19,16,0) 100%);
 }
-.service-feature img {
+.service-feature > img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -380,7 +380,7 @@ em { font-weight: 500; }
     font-weight: 500;
     line-height: 1.58;
 }
-.mini-service img {
+.mini-service > img {
     height: 100%;
     object-fit: cover;
     object-position: center;
@@ -414,7 +414,7 @@ em { font-weight: 500; }
     font-weight: 500;
     line-height: 1.58;
 }
-.course-strip img {
+.course-strip > img {
     height: 100%;
     object-fit: cover;
     object-position: center;
@@ -427,8 +427,8 @@ em { font-weight: 500; }
 .bridal { background: var(--brown); color: var(--white); }
 .bridal-inner { display: grid; grid-template-columns: .9fr 1.1fr; gap: 80px; align-items: center; }
 .bridal-photo { height: 650px; overflow: hidden; }
-.bridal-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .9s var(--ease); }
-.bridal:hover .bridal-photo img { transform: scale(1.025); }
+.bridal-photo > img { width: 100%; height: 100%; object-fit: cover; object-position: center; transition: transform .9s var(--ease); }
+.bridal:hover .bridal-photo > img { transform: scale(1.025); }
 .bridal-copy h2 { max-width: 760px; margin-bottom: 24px; font-size: clamp(3.9rem, 6vw, 6.15rem); line-height: .91; letter-spacing: -.045em; }
 .bridal-copy .lead { max-width: 650px; margin-bottom: 34px; color: #e7d9d3; font-size: 1.28rem; font-weight: 500; line-height: 1.68; }
 .bridal .kicker { color: var(--gold-light); }
@@ -459,7 +459,7 @@ em { font-weight: 500; }
     transition: transform .72s var(--ease), opacity .72s ease, filter .72s ease, box-shadow .72s ease;
     will-change: transform, opacity, filter;
 }
-.portfolio-slide-card img { width: 100%; height: 100%; object-fit: cover; object-position: center; user-select: none; -webkit-user-drag: none; }
+.portfolio-slide-card > img { width: 100%; height: 100%; object-fit: cover; object-position: center; user-select: none; -webkit-user-drag: none; }
 .portfolio-card.pos--2 { transform: translate(-156%, -50%) scale(.72); opacity: .12; filter: saturate(.45) blur(.25px); z-index: 0; }
 .portfolio-card.pos--1 { transform: translate(-122%, -50%) scale(.86); opacity: .38; filter: saturate(.7); z-index: 1; }
 .portfolio-card.pos-0 { transform: translate(-50%, -50%) scale(1); opacity: 1; filter: saturate(1); z-index: 4; box-shadow: 0 30px 75px rgba(47,33,29,.18); }
@@ -496,7 +496,7 @@ em { font-weight: 500; }
 .about-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: 72px; align-items: center; }
 .about-main-photo { position: relative; padding-right: 18px; padding-bottom: 18px; }
 .about-main-photo::after { content: ""; position: absolute; z-index: 0; right: 0; bottom: 0; width: 78%; height: 70%; background: var(--blush-soft); }
-.about-main-photo img { position: relative; z-index: 1; width: 100%; height: 600px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
+.about-main-photo > img { position: relative; z-index: 1; width: 100%; height: 600px; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; }
 .about-copy h2 { margin-bottom: 25px; font-size: clamp(3.9rem, 5.8vw, 5.9rem); line-height: .93; letter-spacing: -.045em; }
 .about-copy .lead { margin-bottom: 18px; color: var(--brown); font-size: 1.22rem; font-weight: 500; line-height: 1.68; }
 .about-copy p:not(.kicker) { color: var(--muted); font-size: 1.14rem; font-weight: 500; line-height: 1.75; }
@@ -509,7 +509,7 @@ em { font-weight: 500; }
 .space-grid { display: grid; grid-template-columns: 1.08fr .92fr; gap: 74px; align-items: center; }
 .space-photo { position: relative; padding-right: 22px; padding-bottom: 22px; }
 .space-photo::after { content: ""; position: absolute; right: 0; bottom: 0; width: 46%; height: 52%; background: var(--blush); }
-.space-photo img { position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; height: 560px; object-fit: cover; object-position: center; }
+.space-photo > img { position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; height: 560px; object-fit: cover; object-position: center; }
 .space-copy h2 { max-width: 650px; margin-bottom: 24px; font-size: clamp(3.8rem, 5.8vw, 5.9rem); line-height: .93; letter-spacing: -.045em; }
 .space-copy > p:not(.kicker) { max-width: 600px; color: var(--muted); font-size: 1.24rem; font-weight: 500; line-height: 1.68; }
 .space-points { margin-top: 30px; max-width: 560px; border-top: 1px solid var(--line); }
@@ -712,7 +712,7 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     .course-strip > div { padding: 30px; }
     .course-strip h3 { font-size: 2.45rem; }
     .course-strip p { font-size: 1.08rem; }
-    .course-strip img { min-height: 285px; }
+    .course-strip > img { min-height: 285px; }
 
     .bridal-inner { gap: 42px; }
     .bridal-photo { height: 560px; }
@@ -732,7 +732,7 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     .portfolio-slide-btn { width: 42px; height: 42px; font-size: 1.6rem; }
     .portfolio-footer { align-items: flex-start; flex-direction: column; gap: 14px; }
 
-    .about-main-photo img, .space-photo img { height: 560px; }
+    .about-main-photo img, .space-photo > img { height: 560px; }
     .about-copy h2, .space-copy h2 { font-size: clamp(3.5rem, 12.3vw, 5.25rem); }
     .about-copy .lead, .space-copy > p:not(.kicker) { font-size: 1.10rem; line-height: 1.6; }
     .about-copy p:not(.kicker) { font-size: 1.06rem; line-height: 1.58; }
@@ -742,11 +742,41 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     .look-grid article img { height: 460px; }
     .look-grid h3 { font-size: 2.15rem; }
 
-    .instagram-header { align-items: flex-start; flex-direction: column; }
-    .instagram-header h2 { font-size: clamp(2.8rem, 10.5vw, 4.2rem); }
-    .instagram-rail { grid-template-columns: repeat(2, 1fr); gap: 9px; }
-    .instagram-rail img:nth-child(n+5) { display: none; }
-    .instagram-rail img { height: 215px; }
+    .instagram-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+        margin-bottom: 24px;
+    }
+    .instagram-header > div { width: 100%; min-width: 0; }
+    .instagram-header h2 {
+        max-width: 100%;
+        font-size: clamp(2.15rem, 8.9vw, 3rem);
+        line-height: .98;
+        letter-spacing: -.025em;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+    .instagram-header p:last-child {
+        max-width: 33rem;
+        margin-top: 7px;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    .instagram-header .button {
+        align-self: flex-start;
+    }
+    .instagram-rail {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 7px;
+    }
+    .instagram-rail img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+    }
 
     .faq-grid { gap: 42px; }
     .faq h2 { font-size: clamp(3.55rem, 12.5vw, 5.2rem); }
@@ -810,11 +840,11 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     .mini-service > div { padding: 24px; }
     .mini-service h3 { font-size: 2.15rem; }
     .mini-service p { max-width: none; font-size: 1.02rem; }
-    .mini-service img { min-height: 250px; max-height: 310px; }
+    .mini-service > img { min-height: 250px; max-height: 310px; }
     .course-strip > div { padding: 26px; }
     .course-strip h3 { font-size: 2.3rem; }
     .course-strip p { font-size: 1.03rem; }
-    .course-strip img { min-height: 275px; }
+    .course-strip > img { min-height: 275px; }
 
     .bridal-photo { height: 470px; }
     .bridal-copy h2 { font-size: clamp(3.2rem, 13vw, 5.1rem); }
@@ -834,7 +864,7 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     .portfolio-progress { width: 42%; }
     .portfolio-footer > span { font-size: .82rem; }
 
-    .about-main-photo img, .space-photo img { height: 500px; }
+    .about-main-photo img, .space-photo > img { height: 500px; }
     .about-copy h2, .space-copy h2 { font-size: clamp(3.2rem, 13vw, 4.9rem); }
     .about-copy .lead, .space-copy > p:not(.kicker) { font-size: 1.05rem; }
     .about-copy p:not(.kicker) { font-size: 1rem; }
@@ -898,7 +928,7 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
 .occasion-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
 .occasion-card { position:relative; min-height:440px; overflow:hidden; background:var(--brown-deep); color:var(--white); }
 .occasion-card::after { content:""; position:absolute; inset:0; background:linear-gradient(180deg,rgba(0,0,0,.04) 18%,rgba(0,0,0,.78) 100%); }
-.occasion-card img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .75s var(--ease),filter .45s ease; }
+.occasion-card > img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .75s var(--ease),filter .45s ease; }
 .occasion-card:hover img { transform:scale(1.045); filter:saturate(1.04); }
 .occasion-card > div { position:absolute; z-index:2; left:22px; right:22px; bottom:22px; display:flex; flex-direction:column; gap:8px; }
 .occasion-card span { color:var(--gold-light); font-size:.76rem; font-weight:700; letter-spacing:.15em; }
@@ -958,3 +988,225 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
 .button-icon-whatsapp { width: 17px; height: 17px; }
 .footer-social-link { display:inline-flex; align-items:center; gap:9px; }
 .footer-icon { width: 15px; height: 15px; flex:0 0 auto; color:currentColor; }
+
+/* V23 — RESPONSIVIDADE / POLIMENTO MOBILE */
+
+/* SVGs usados como <img> não herdam currentColor do CSS. Mantemos os arquivos
+   com desenho escuro e adaptamos apenas onde o fundo exige contraste inverso. */
+.button-dark .button-icon,
+.footer-icon {
+    filter: brightness(0) invert(1);
+    opacity: .88;
+}
+
+@media (max-width: 800px) {
+    .site-header { border-bottom-color: rgba(255,255,255,.12); }
+    .site-header.is-scrolled { background: rgba(47,33,29,.985); backdrop-filter: blur(12px); }
+
+    .about-intro { padding-top: 62px; padding-bottom: 68px; }
+    .about-main-photo { padding-right: 12px; padding-bottom: 12px; }
+    .about-main-photo > img { height: 480px; }
+    .about-copy { padding-top: 6px; }
+    .about-copy .kicker { margin-bottom: 12px; }
+
+    .mini-service > div { justify-content: flex-start; }
+
+    .occasion-card { min-height: 360px; }
+
+    .instagram-header h2 {
+        max-width: 100%;
+        font-size: clamp(2.35rem, 9.2vw, 3.25rem);
+        line-height: .96;
+        letter-spacing: -.035em;
+        overflow-wrap: anywhere;
+    }
+}
+
+@media (max-width: 560px) {
+    /* Serviços: no mobile a imagem deixa de carregar o texto inteiro por cima.
+       A peça vira uma composição em duas partes, mais legível e respirada. */
+    .service-feature {
+        display: grid;
+        grid-template-rows: 320px auto;
+        min-height: 0;
+        background: var(--white);
+        border: 1px solid var(--line);
+        overflow: hidden;
+    }
+    .service-feature::after { display: none; }
+    .service-feature > img {
+        position: relative;
+        inset: auto;
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        object-position: center;
+        grid-row: 1;
+    }
+    .service-feature:hover img { transform: none; }
+    .service-feature-content {
+        position: relative;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        z-index: 2;
+        padding: 24px 22px 26px;
+        color: var(--brown);
+        background: var(--white);
+        grid-row: 2;
+    }
+    .service-feature-content > span { color: var(--gold); }
+    .service-feature-content h3 {
+        max-width: none;
+        margin: 8px 0 11px;
+        font-size: 2.55rem;
+        line-height: .95;
+    }
+    .service-feature-content p {
+        max-width: none;
+        color: var(--muted);
+        font-size: 1.02rem;
+        line-height: 1.52;
+    }
+    .service-tags { margin-top: 16px; gap: 6px; }
+    .service-tags span {
+        padding: 6px 8px;
+        border-color: var(--line);
+        background: var(--cream);
+        color: var(--brown);
+        font-size: .70rem;
+    }
+    .service-feature-content .text-button {
+        margin-top: 18px;
+        color: var(--brown);
+    }
+
+    /* Cards secundários continuam empilhados, mas sem espaços internos excessivos. */
+    .mini-service > div { padding: 22px; }
+    .mini-service h3 { font-size: 2.08rem; }
+    .mini-service p { font-size: 1rem; line-height: 1.48; }
+    .mini-service > img {
+        min-height: 240px;
+        max-height: 290px;
+    }
+
+    /* Curso: elimina o grande vazio do alinhamento vertical e mantém CTA junto do texto. */
+    .course-strip > div {
+        justify-content: flex-start;
+        padding: 26px 24px 28px;
+    }
+    .course-strip h3 { font-size: 2.25rem; }
+    .course-strip p { font-size: 1.02rem; line-height: 1.52; }
+    .course-strip .text-button { margin-top: 18px; }
+    .course-strip > img {
+        min-height: 285px;
+        max-height: 330px;
+        object-position: center top;
+    }
+
+    .about-main-photo img,
+    .space-photo > img { height: 440px; }
+
+    /* O handle do Instagram é uma única unidade; em telas estreitas ele pode
+       quebrar apenas em pontos naturais em vez de cortar na borda. */
+    .instagram-header h2 {
+        width: 100%;
+        font-size: 2.35rem;
+        line-height: .98;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+    }
+    .instagram-header { gap: 18px; margin-bottom: 22px; }
+    .instagram-header .button { align-self: flex-start; }
+    .instagram-rail { gap: 8px; }
+    .instagram-rail img { height: 185px; }
+
+    .portfolio-stage { min-height: 430px; }
+    .portfolio-slide-card { width: min(74vw, 330px); }
+    .portfolio-card.pos--1 { opacity: .12; }
+    .portfolio-card.pos-1 { opacity: .12; }
+    .portfolio-card.pos--2,
+    .portfolio-card.pos-2 { opacity: .035; }
+
+    .faq-grid { gap: 34px; }
+    summary { min-height: 68px; }
+
+    .contact-actions { gap: 10px; }
+    .contact-actions .button { max-width: 100%; }
+}
+
+@media (max-width: 380px) {
+    .service-feature { grid-template-rows: 285px auto; }
+    .service-feature > img { height: 285px; }
+    .service-feature-content h3 { font-size: 2.35rem; }
+    .course-strip h3 { font-size: 2.12rem; }
+    .about-main-photo img,
+    .space-photo > img { height: 410px; }
+    .instagram-header h2 { font-size: 2.18rem; }
+}
+
+/* V25 — INSTAGRAM MOBILE / FLUIDEZ
+   No mobile, o Instagram vira uma faixa horizontal para evitar a quebra
+   artificial em duas colunas e o terceiro/quarto post isolado em outra linha. */
+@media (max-width: 560px) {
+    .instagram-band {
+        padding-top: 68px;
+        padding-bottom: 68px;
+        overflow: hidden;
+    }
+
+    .instagram-header {
+        margin-bottom: 24px;
+        gap: 16px;
+    }
+
+    .instagram-header h2 {
+        max-width: 100%;
+        font-size: clamp(2.2rem, 9.7vw, 3.05rem);
+        line-height: .98;
+        letter-spacing: -.035em;
+        word-break: normal;
+        overflow-wrap: anywhere;
+    }
+
+    .instagram-header p:last-child {
+        max-width: 33rem;
+        font-size: .98rem;
+        line-height: 1.5;
+    }
+
+    .instagram-header .button {
+        width: fit-content;
+        min-height: 46px;
+        padding-inline: 16px;
+    }
+
+    .instagram-rail {
+        display: flex;
+        grid-template-columns: none;
+        gap: 9px;
+        width: calc(100% + 14px);
+        margin-right: -14px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        padding: 2px 14px 8px 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .instagram-rail::-webkit-scrollbar { display: none; }
+
+    .instagram-rail img,
+    .instagram-rail img:nth-child(n+4),
+    .instagram-rail img:nth-child(n+5) {
+        display: block;
+        flex: 0 0 min(58vw, 228px);
+        width: min(58vw, 228px);
+        height: min(72vw, 278px);
+        aspect-ratio: 4 / 5;
+        object-fit: cover;
+        scroll-snap-align: start;
+        scroll-snap-stop: always;
+    }
+}
