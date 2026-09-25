@@ -1,6 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
-    /* MOBILE NAV */
+    /* STICKY HEADER */
     const siteHeader = document.querySelector(".site-header");
+    let headerTicking = false;
+
+    function updateHeaderState() {
+        siteHeader?.classList.toggle("is-scrolled", window.scrollY > 28);
+        headerTicking = false;
+    }
+
+    updateHeaderState();
+    window.addEventListener("scroll", () => {
+        if (headerTicking) return;
+        headerTicking = true;
+        window.requestAnimationFrame(updateHeaderState);
+    }, { passive: true });
+
+    window.addEventListener("hashchange", updateHeaderState);
+
+    /* MOBILE NAV */
     const mobileToggle = document.querySelector(".mobile-menu-toggle");
     const mobileNav = document.querySelector("#mobileNav");
 
@@ -82,13 +99,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const portfolioItems = [
         { src: "assets/make_1.jpg", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
-        { src: "assets/make_2.jpg", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
-        { src: "assets/make_3.jpg", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
-        { src: "assets/make_5.jpg", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
-        { src: "assets/make_6.jpg", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
-        { src: "assets/debutante_1.jpg", alt: "Produção para debutante", label: "Debutante" },
-        { src: "assets/noiva_1.jpg", alt: "Produção de noiva", label: "Noivas" },
-        { src: "assets/noiva_2.jpg", alt: "Produção de noiva", label: "Noivas" }
+        { src: "assets/make_2.webp", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
+        { src: "assets/make_3.webp", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
+        { src: "assets/make_5.webp", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
+        { src: "assets/make_6.webp", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
+        { src: "assets/debutante_1.webp", alt: "Produção para debutante", label: "Debutante" },
+        { src: "assets/noiva_1.jfif", alt: "Produção de noiva", label: "Noivas" },
+        { src: "assets/noiva_2.webp", alt: "Produção de noiva", label: "Noivas" }
     ];
 
     let portfolioIndex = 0;
