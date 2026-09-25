@@ -74,6 +74,15 @@ em { font-weight: 500; }
     transition: transform .22s ease, background-color .22s ease, color .22s ease, border-color .22s ease;
 }
 .button:hover { transform: translateY(-2px); }
+.button-icon {
+    width: 17px;
+    height: 17px;
+    flex: 0 0 auto;
+    display: block;
+    transition: transform .22s ease;
+}
+.button:hover .button-icon { transform: translateY(-1px); }
+.bridal-cta { gap: 10px; }
 .button-gold { background: var(--gold); color: var(--white); }
 .button-gold:hover { background: var(--gold-light); color: var(--brown-deep); }
 .button-dark { background: var(--brown); color: var(--white); }
@@ -935,3 +944,17 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     .look-grid article div { grid-template-columns:32px 1fr; }
     .look-grid article small { grid-column:2; }
 }
+
+/* V22 — ÍCONES DE AÇÃO CONSISTENTES */
+.text-icon {
+    width: 15px;
+    height: 15px;
+    flex: 0 0 auto;
+    display: block;
+    color: currentColor;
+    transition: transform .22s ease;
+}
+.text-button:hover .text-icon { transform: translateY(-1px); }
+.button-icon-whatsapp { width: 17px; height: 17px; }
+.footer-social-link { display:inline-flex; align-items:center; gap:9px; }
+.footer-icon { width: 15px; height: 15px; flex:0 0 auto; color:currentColor; }
