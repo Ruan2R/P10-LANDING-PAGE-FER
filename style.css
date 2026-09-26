@@ -525,12 +525,6 @@ em { font-weight: 500; }
     border-right: 1px solid var(--line);
 }
 .about-services a:nth-child(even) { padding-left: 22px; }
-.about-services a small {
-    color: var(--gold);
-    font-size: .68rem;
-    font-weight: 700;
-    letter-spacing: .12em;
-}
 .about-services a span {
     display: block;
     min-height: 0;
@@ -544,15 +538,8 @@ em { font-weight: 500; }
     text-transform: uppercase;
 }
 .about-services a span::before { display: none; content: none; }
-.about-services a b {
-    color: var(--gold);
-    font-size: .98rem;
-    font-weight: 500;
-    transition: transform .22s ease;
-}
 .about-services a:hover { color: var(--rose); padding-left: 5px; }
 .about-services a:nth-child(even):hover { padding-left: 27px; }
-.about-services a:hover b { transform: translate(2px, -2px); }
 .about-copy .text-button { margin-top: 24px; }
 
 /* SPACE */
@@ -1128,7 +1115,7 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
         font-size: .70rem;
     }
     .service-feature-content .text-button {
-        margin-top: 18px;
+        margin-top: 14px;
         color: var(--brown);
     }
 
@@ -1914,8 +1901,7 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     }
     .about-services a:nth-child(odd) { padding-right: 12px; }
     .about-services a:nth-child(even) { padding-left: 12px; }
-    .about-services a small { font-size: .61rem; }
-    .about-services a span { font-size: .64rem; letter-spacing: .075em; }
+    .about-services a span { font-size: .70rem; letter-spacing: .10em; }
     .about-services a b { font-size: .86rem; }
 
     .brush-divider { height: 50px; }
@@ -1954,8 +1940,8 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
 }
 
 @media (max-width: 380px) {
-    .about-services a span { font-size: .60rem; }
-    .about-services a { gap: 7px; }
+    .about-services a span { font-size: .64rem; }
+    .about-services a { gap: 0; }
     .about-services a:nth-child(odd) { padding-right: 10px; }
     .about-services a:nth-child(even) { padding-left: 10px; }
 }
@@ -1982,25 +1968,6 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     width: 24px;
     height: 1px;
     background: currentColor;
-}
-.service-occasions {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 7px 9px;
-    margin-top: 20px;
-    color: rgba(255,253,249,.90);
-}
-.service-occasions span {
-    font-size: .76rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-}
-.service-occasions i {
-    color: var(--gold-light);
-    font-size: .8rem;
-    font-style: normal;
 }
 .service-feature-content .text-button { margin-top: 22px; }
 .mini-service > div > span:first-child { color: var(--gold); }
@@ -2066,14 +2033,43 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     .service-feature-content > span::before,
     .mini-service > div > span:first-child::before,
     .course-strip > div > span:first-child::before { width: 20px; }
-    .service-occasions { margin-top: 18px; gap: 6px 8px; }
-    .service-occasions span { font-size: .68rem; }
-    .service-occasions i { font-size: .72rem; }
-    .service-feature-content .text-button { margin-top: 20px; }
+    .service-feature-content .text-button { margin-top: 16px; }
 
     .bridal { padding-top: 22px; }
     .bridal-section-kicker { margin-bottom: 14px; }
     .bridal-points div { padding: 14px 0; }
     .bridal-points span { font-size: 1rem; }
     .space-kicker { margin-bottom: 12px; }
+}
+
+
+/* V34 — SERVIÇOS DO PERFIL / sem numeração e sem setas */
+.about-services a {
+    position: relative;
+    grid-template-columns: 1fr;
+    transition: color .25s ease, padding-left .25s ease, background-color .25s ease;
+}
+.about-services a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .25s ease;
+}
+.about-services a:hover::after,
+.about-services a:focus-visible::after {
+    transform: scaleX(1);
+}
+.about-services a:hover span,
+.about-services a:focus-visible span {
+    color: var(--rose);
+}
+.about-services a:focus-visible {
+    outline: 1px solid var(--gold);
+    outline-offset: -1px;
 }
