@@ -341,6 +341,9 @@ em { font-weight: 500; }
     font-weight: 700;
     letter-spacing: .16em;
 }
+.course-strip > div > span:first-child {
+    color: var(--white);
+}
 .service-feature-content h3 {
     max-width: 620px;
     margin: 10px 0 12px;
@@ -500,8 +503,44 @@ em { font-weight: 500; }
 .about-copy h2 { margin-bottom: 25px; font-size: clamp(3.9rem, 5.8vw, 5.9rem); line-height: .93; letter-spacing: -.045em; }
 .about-copy .lead { margin-bottom: 18px; color: var(--brown); font-size: 1.22rem; font-weight: 500; line-height: 1.68; }
 .about-copy p:not(.kicker) { color: var(--muted); font-size: 1.14rem; font-weight: 500; line-height: 1.75; }
-.about-services { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
-.about-services span { padding: 9px 12px; border: 1px solid var(--line); background: var(--white); color: var(--brown); font-size: .73rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.about-services {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin-top: 28px;
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+}
+.about-services span {
+    position: relative;
+    min-height: 58px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 12px 14px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: rgba(255,255,255,.58);
+    color: var(--brown);
+    font-size: .73rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.about-services span::before {
+    counter-increment: about-service;
+    content: counter(about-service, decimal-leading-zero);
+    display: grid;
+    place-items: center;
+    width: 27px;
+    height: 27px;
+    flex: 0 0 27px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    color: var(--gold);
+    font-size: .62rem;
+    letter-spacing: .06em;
+}
+.about-services { counter-reset: about-service; }
 .about-copy .text-button { margin-top: 24px; }
 
 /* SPACE */
@@ -1638,5 +1677,239 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
         right: 14px;
         bottom: 14px;
         text-align: center;
+    }
+}
+
+
+/* V30 — HIERARQUIA, TRANSIÇÃO E ATALHO DE LOCALIZAÇÃO */
+.about-kicker {
+    margin-bottom: 28px;
+}
+
+.brush-divider {
+    position: relative;
+    height: 120px;
+    overflow: hidden;
+    isolation: isolate;
+    background: var(--brown-deep);
+}
+
+.brush-divider::before {
+    content: "";
+    position: absolute;
+    inset: -9%;
+    background: url("assets/make_6.webp") center 57% / cover no-repeat;
+    background-attachment: fixed;
+    filter: grayscale(1) contrast(1.08);
+    opacity: .24;
+    transform: scale(1.06);
+}
+
+.brush-divider::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(38,25,22,.88) 0%, rgba(38,25,22,.30) 48%, rgba(38,25,22,.86) 100%),
+        linear-gradient(180deg, rgba(255,250,246,.08), rgba(255,250,246,0));
+    pointer-events: none;
+}
+
+.hero-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-location-link {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+    flex: 0 0 52px;
+    border: 1px solid rgba(255,255,255,.54);
+    border-radius: 50%;
+    background: rgba(0,0,0,.13);
+    color: var(--white);
+    transition: transform .22s ease, background-color .22s ease, border-color .22s ease;
+}
+
+.hero-location-link:hover {
+    transform: translateY(-2px);
+    background: rgba(0,0,0,.28);
+    border-color: rgba(255,255,255,.82);
+}
+
+.hero-location-link svg,
+.location-icon svg {
+    width: 19px;
+    height: 19px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.65;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.bridal-photo {
+    position: relative;
+}
+
+.bridal-section-kicker {
+    margin-bottom: 20px;
+    color: var(--gold-light);
+}
+.bridal-section-kicker::before {
+    background: currentColor;
+}
+
+.location-icon {
+    display: grid;
+    place-items: center;
+}
+
+.location-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+@media (min-width: 901px) {
+    .about-intro {
+        padding-top: 92px;
+        padding-bottom: 36px;
+    }
+
+    .about-kicker {
+        margin-bottom: 28px;
+    }
+
+    .services {
+        padding-top: 64px;
+    }
+}
+
+@media (max-width: 900px) {
+    .brush-divider {
+        height: 88px;
+    }
+
+    .brush-divider::before {
+        background-attachment: scroll;
+        background-position: center 54%;
+    }
+
+    .bridal-photo-kicker {
+        top: 18px;
+        left: 18px;
+    }
+}
+
+@media (max-width: 800px) {
+    .about-intro {
+        padding-top: 62px;
+        padding-bottom: 30px;
+    }
+
+    .about-kicker {
+        margin-bottom: 20px;
+    }
+
+    .services {
+        padding-top: 54px;
+    }
+}
+
+@media (max-width: 560px) {
+    .about-intro {
+        padding-top: 58px;
+        padding-bottom: 26px;
+    }
+
+    .about-kicker {
+        margin-bottom: 18px;
+    }
+
+    .brush-divider {
+        height: 74px;
+    }
+
+    .brush-divider::before {
+        inset: -12%;
+        background-position: 42% 55%;
+        opacity: .28;
+    }
+
+    .brush-divider::after {
+        background:
+            linear-gradient(90deg, rgba(38,25,22,.90) 0%, rgba(38,25,22,.36) 50%, rgba(38,25,22,.90) 100%);
+    }
+
+    .services {
+        padding-top: 48px;
+    }
+
+    .hero-cta-row {
+        width: auto;
+        max-width: 100%;
+    }
+
+    .hero-cta-row .button-gold {
+        flex: 0 0 auto;
+    }
+
+    .hero-location-link {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+    }
+
+    .bridal-section-kicker {
+        margin-bottom: 16px;
+        font-size: .76rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .brush-divider::before {
+        background-attachment: scroll;
+    }
+}
+
+
+/* V31 — AJUSTES DE HIERARQUIA E VOZ */
+@media (max-width: 560px) {
+    .about-services {
+        margin-top: 24px;
+    }
+
+    .about-services span {
+        min-height: 54px;
+        padding: 10px 11px;
+        gap: 9px;
+        font-size: .67rem;
+    }
+
+    .about-services span::before {
+        width: 25px;
+        height: 25px;
+        flex-basis: 25px;
+        font-size: .58rem;
+    }
+
+    .bridal-section-kicker {
+        margin-bottom: 15px;
+    }
+
+    .location-copy h2 {
+        max-width: 560px;
+        font-size: clamp(3.35rem, 13.6vw, 4.8rem);
+        line-height: .94;
+    }
+}
+
+@media (max-width: 380px) {
+    .about-services span {
+        font-size: .63rem;
+        letter-spacing: .065em;
     }
 }
