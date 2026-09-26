@@ -358,8 +358,6 @@ em { font-weight: 500; }
     font-weight: 500;
 }
 .service-feature-content .text-button { margin-top: 20px; }
-.service-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
-.service-tags span { padding: 7px 10px; border: 1px solid rgba(255,255,255,.26); color: #f4ebe7; font-size: .76rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
 .service-stack { display: grid; gap: 20px; }
 .mini-service {
     display: grid;
@@ -739,8 +737,6 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     .service-feature-content { left: 28px; right: 28px; bottom: 28px; }
     .service-feature-content h3 { font-size: clamp(2.9rem, 10.5vw, 4.1rem); }
     .service-feature-content p { font-size: 1.10rem; line-height: 1.48; }
-    .service-tags { gap: 6px; }
-    .service-tags span { font-size: .72rem; padding: 6px 8px; }
     .service-stack { gap: 18px; }
     .mini-service { grid-template-columns: 1fr 205px; min-height: 280px; }
     .mini-service > div { padding: 26px; }
@@ -1105,14 +1101,6 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
         color: var(--muted);
         font-size: 1.02rem;
         line-height: 1.52;
-    }
-    .service-tags { margin-top: 16px; gap: 6px; }
-    .service-tags span {
-        padding: 6px 8px;
-        border-color: var(--line);
-        background: var(--cream);
-        color: var(--brown);
-        font-size: .70rem;
     }
     .service-feature-content .text-button {
         margin-top: 14px;
@@ -2072,4 +2060,136 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
 .about-services a:focus-visible {
     outline: 1px solid var(--gold);
     outline-offset: -1px;
+}
+
+
+/* V36 — REFINAMENTO FINAL / HIERARQUIA / MOBILE
+   Última camada de ajustes: remove numeração decorativa, corrige o Hero no mobile,
+   aproxima conteúdos e transforma pequenos indicadores em detalhes gráficos discretos. */
+
+/* Hero: o título precisa caber inteiro no viewport móvel. */
+@media (max-width: 560px) {
+    .hero-copy h1 {
+        font-size: clamp(3.45rem, 13vw, 4.45rem);
+        line-height: .90;
+        letter-spacing: -.045em;
+        max-width: 100%;
+    }
+
+    .hero-copy {
+        width: 100%;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-copy h1 {
+        font-size: 3.35rem;
+    }
+}
+
+/* Ocasiões: a fotografia e os títulos fazem a hierarquia; sem contador decorativo. */
+.occasion-card > div {
+    gap: 8px;
+}
+
+/* Resultados: pequenos marcadores gráficos, sem enumeração. */
+.look-grid article div {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    align-items: start;
+}
+
+.look-grid article div::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    margin-bottom: 2px;
+    background: var(--gold);
+}
+
+.look-grid article span {
+    display: none;
+}
+
+.look-grid h3 {
+    line-height: 1;
+}
+
+.look-grid article small {
+    display: block;
+}
+
+/* Processo: a linha lateral funciona como guia visual, sem cara de lista numerada. */
+.process-list article {
+    position: relative;
+    display: grid;
+    grid-template-columns: 16px 1fr;
+    gap: 18px;
+}
+
+.process-list article::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    margin-top: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+}
+
+.process-list article > span {
+    display: none;
+}
+
+/* Espaço: mesmo princípio; o conteúdo fica limpo e mais autoral. */
+.space-points div {
+    grid-template-columns: 16px 1fr;
+    gap: 16px;
+}
+
+.space-points div::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    margin-top: 9px;
+    border-radius: 50%;
+    background: var(--gold);
+}
+
+.space-points strong {
+    display: none;
+}
+
+/* Instagram: comportamento de extensão do portfólio, com copy mais direta. */
+.instagram-header h2 {
+    letter-spacing: -.045em;
+}
+
+/* O contador do portfólio continua: aqui ele tem função real de navegação. */
+.portfolio-count {
+    font-variant-numeric: tabular-nums;
+}
+
+/* Localização: a ação principal fica única e o mapa assume o papel visual. */
+.location-map-link {
+    display: none;
+}
+
+
+/* No mobile, o endereço visualmente não precisa competir com o mapa. */
+@media (max-width: 560px) {
+    .location-address {
+        margin-top: 18px;
+        margin-bottom: 0;
+    }
+
+    .process-list article,
+    .space-points div {
+        grid-template-columns: 14px 1fr;
+        gap: 12px;
+    }
+
+    .process-list article::before,
+    .space-points div::before {
+        margin-top: 8px;
+    }
 }

@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://ruan2r.github.io/P10-LANDING-PAGE-FER/sitemap.xml
