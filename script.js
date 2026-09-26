@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const prev = document.querySelector(".hero-prev");
     const next = document.querySelector(".hero-next");
     const counter = document.querySelector(".hero-counter strong");
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let current = 0;
     let timer;
@@ -66,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function restartTimer() {
         window.clearInterval(timer);
+        if (prefersReducedMotion) return;
         timer = window.setInterval(() => showSlide(current + 1), 6500);
     }
 
@@ -98,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let portfolioCards = [...document.querySelectorAll(".portfolio-card")];
 
     const portfolioItems = [
-        { src: "assets/make_1.jpg", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
+        { src: "assets/make_1.webp", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
         { src: "assets/make_2.webp", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
         { src: "assets/make_3.webp", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
         { src: "assets/make_5.webp", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
@@ -216,6 +218,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function restartPortfolioTimer() {
         window.clearInterval(portfolioTimer);
+        if (prefersReducedMotion) return;
         portfolioTimer = window.setInterval(() => movePortfolio(1), 5600);
     }
 
@@ -242,4 +245,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     renderPortfolio();
     restartPortfolioTimer();
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            window.clearInterval(timer);
+            window.clearInterval(portfolioTimer);
+        } else {
+            restartTimer();
+            restartPortfolioTimer();
+        }
+    });
 });

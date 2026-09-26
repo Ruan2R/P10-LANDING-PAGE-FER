@@ -506,41 +506,53 @@ em { font-weight: 500; }
 .about-services {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    margin-top: 28px;
+    margin-top: 30px;
     border-top: 1px solid var(--line);
-    border-left: 1px solid var(--line);
 }
-.about-services span {
-    position: relative;
-    min-height: 58px;
-    display: flex;
+.about-services a {
+    min-height: 66px;
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
     align-items: center;
-    gap: 11px;
-    padding: 12px 14px;
-    border-right: 1px solid var(--line);
+    gap: 12px;
+    padding: 12px 4px 12px 0;
     border-bottom: 1px solid var(--line);
-    background: rgba(255,255,255,.58);
     color: var(--brown);
-    font-size: .73rem;
+    transition: color .22s ease, padding-left .22s ease, background-color .22s ease;
+}
+.about-services a:nth-child(odd) {
+    padding-right: 22px;
+    border-right: 1px solid var(--line);
+}
+.about-services a:nth-child(even) { padding-left: 22px; }
+.about-services a small {
+    color: var(--gold);
+    font-size: .68rem;
     font-weight: 700;
-    letter-spacing: .08em;
+    letter-spacing: .12em;
+}
+.about-services a span {
+    display: block;
+    min-height: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: currentColor;
+    font-size: .82rem;
+    font-weight: 700;
+    letter-spacing: .10em;
     text-transform: uppercase;
 }
-.about-services span::before {
-    counter-increment: about-service;
-    content: counter(about-service, decimal-leading-zero);
-    display: grid;
-    place-items: center;
-    width: 27px;
-    height: 27px;
-    flex: 0 0 27px;
-    border: 1px solid var(--gold);
-    border-radius: 50%;
+.about-services a span::before { display: none; content: none; }
+.about-services a b {
     color: var(--gold);
-    font-size: .62rem;
-    letter-spacing: .06em;
+    font-size: .98rem;
+    font-weight: 500;
+    transition: transform .22s ease;
 }
-.about-services { counter-reset: about-service; }
+.about-services a:hover { color: var(--rose); padding-left: 5px; }
+.about-services a:nth-child(even):hover { padding-left: 27px; }
+.about-services a:hover b { transform: translate(2px, -2px); }
 .about-copy .text-button { margin-top: 24px; }
 
 /* SPACE */
@@ -1598,22 +1610,6 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
     filter: saturate(.82) contrast(.96);
 }
 
-.location-map-link {
-    position: absolute;
-    right: 18px;
-    bottom: 18px;
-    padding: 12px 15px;
-    background: var(--brown);
-    color: var(--white);
-    font-size: .78rem;
-    font-weight: 700;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-}
-
-.location-map-link:hover {
-    background: var(--rose);
-}
 
 @media (max-width: 900px) {
     .location-grid {
@@ -1672,12 +1668,6 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
         min-height: 330px;
     }
 
-    .location-map-link {
-        left: 14px;
-        right: 14px;
-        bottom: 14px;
-        text-align: center;
-    }
 }
 
 
@@ -1876,40 +1866,214 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
 }
 
 
-/* V31 — AJUSTES DE HIERARQUIA E VOZ */
+/* V32 — REFINO VISUAL / RITMO MOBILE / ACESSIBILIDADE */
+.brush-divider {
+    height: 86px;
+    background: var(--brown-deep);
+}
+.brush-divider::before {
+    inset: -15%;
+    background-position: center 60%;
+    filter: grayscale(1) contrast(1.12);
+    opacity: .50;
+    transform: scale(1.08);
+}
+.brush-divider::after {
+    background:
+        linear-gradient(90deg, rgba(38,25,22,.70), rgba(38,25,22,.12) 48%, rgba(38,25,22,.70)),
+        linear-gradient(180deg, rgba(255,250,246,.07), rgba(255,250,246,0));
+}
+
+.bridal { padding-top: 86px; }
+.bridal-section-kicker { margin-bottom: 16px; }
+.location-copy h2 { max-width: 620px; }
+
+@media (max-width: 800px) {
+    .mobile-nav { inset-block-start: 78px; }
+    .brush-divider { height: 58px; }
+    .brush-divider::before {
+        inset: -18%;
+        background-attachment: scroll;
+        background-position: 43% 59%;
+        opacity: .38;
+    }
+    .bridal { padding-top: 62px; }
+}
+
 @media (max-width: 560px) {
+    .mobile-nav { inset-block-start: 72px; }
+
     .about-services {
         margin-top: 24px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .about-services a {
+        min-height: 58px;
+        gap: 8px;
+        padding: 10px 4px 10px 0;
+    }
+    .about-services a:nth-child(odd) { padding-right: 12px; }
+    .about-services a:nth-child(even) { padding-left: 12px; }
+    .about-services a small { font-size: .61rem; }
+    .about-services a span { font-size: .64rem; letter-spacing: .075em; }
+    .about-services a b { font-size: .86rem; }
+
+    .brush-divider { height: 50px; }
+    .brush-divider::before {
+        inset: -22%;
+        background-position: 41% 60%;
+        opacity: .40;
+    }
+    .brush-divider::after {
+        background: linear-gradient(90deg, rgba(38,25,22,.78), rgba(38,25,22,.18) 50%, rgba(38,25,22,.78));
     }
 
-    .about-services span {
-        min-height: 54px;
-        padding: 10px 11px;
-        gap: 9px;
-        font-size: .67rem;
-    }
+    .services { padding-top: 50px; }
 
-    .about-services span::before {
-        width: 25px;
-        height: 25px;
-        flex-basis: 25px;
-        font-size: .58rem;
+    .bridal {
+        padding-top: 48px;
     }
-
     .bridal-section-kicker {
-        margin-bottom: 15px;
+        margin-bottom: 14px;
+        font-size: .74rem;
     }
 
     .location-copy h2 {
-        max-width: 560px;
-        font-size: clamp(3.35rem, 13.6vw, 4.8rem);
-        line-height: .94;
+        max-width: 100%;
+        font-size: clamp(3rem, 12vw, 4.2rem);
+        line-height: .95;
+    }
+    .location-copy > p:not(.kicker) {
+        font-size: 1rem;
+        line-height: 1.55;
+    }
+    .location-map,
+    .location-map iframe {
+        min-height: 300px;
     }
 }
 
 @media (max-width: 380px) {
-    .about-services span {
-        font-size: .63rem;
-        letter-spacing: .065em;
+    .about-services a span { font-size: .60rem; }
+    .about-services a { gap: 7px; }
+    .about-services a:nth-child(odd) { padding-right: 10px; }
+    .about-services a:nth-child(even) { padding-left: 10px; }
+}
+
+
+/* V33 — SERVIÇOS EDITORIAIS / NOIVAS / ESPAÇO */
+.service-feature-content > span,
+.mini-service > div > span:first-child,
+.course-strip > div > span:first-child {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    color: var(--gold-light);
+    font-size: .74rem;
+    font-weight: 700;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+.service-feature-content > span::before,
+.mini-service > div > span:first-child::before,
+.course-strip > div > span:first-child::before {
+    content: "";
+    width: 24px;
+    height: 1px;
+    background: currentColor;
+}
+.service-occasions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px 9px;
+    margin-top: 20px;
+    color: rgba(255,253,249,.90);
+}
+.service-occasions span {
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+}
+.service-occasions i {
+    color: var(--gold-light);
+    font-size: .8rem;
+    font-style: normal;
+}
+.service-feature-content .text-button { margin-top: 22px; }
+.mini-service > div > span:first-child { color: var(--gold); }
+.mini-service h3 { margin-top: 11px; }
+.mini-service:hover { background: var(--paper); }
+.course-strip > div > span:first-child { color: var(--white); }
+
+/* Noivas: informação editorial, sem enumeração rígida. */
+.bridal-points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0;
+    border-top: 1px solid rgba(255,255,255,.15);
+    border-bottom: 1px solid rgba(255,255,255,.15);
+}
+.bridal-points div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 92px;
+    padding: 18px 24px 18px 18px;
+    border-bottom: 0;
+}
+.bridal-points div:not(:first-child) { border-left: 1px solid rgba(255,255,255,.15); }
+.bridal-points div::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    flex: 0 0 5px;
+    margin-right: 12px;
+    border-radius: 50%;
+    background: var(--gold-light);
+}
+.bridal-points span {
+    color: #f3ebe7;
+    font-size: 1.03rem;
+    line-height: 1.45;
+}
+
+/* Espaço: o kicker pertence visualmente à imagem. */
+.space-visual { display: flex; flex-direction: column; }
+.space-kicker { margin-bottom: 14px; }
+.space-copy > h2 { margin-top: 0; }
+
+@media (max-width: 900px) {
+    .bridal-points { grid-template-columns: 1fr; }
+    .bridal-points div {
+        min-height: 0;
+        padding: 15px 0;
+        border-bottom: 1px solid rgba(255,255,255,.15);
     }
+    .bridal-points div:last-child { border-bottom: 0; }
+    .bridal-points div:not(:first-child) { border-left: 0; }
+}
+
+@media (max-width: 560px) {
+    .service-feature-content > span,
+    .mini-service > div > span:first-child,
+    .course-strip > div > span:first-child {
+        font-size: .70rem;
+        letter-spacing: .16em;
+    }
+    .service-feature-content > span::before,
+    .mini-service > div > span:first-child::before,
+    .course-strip > div > span:first-child::before { width: 20px; }
+    .service-occasions { margin-top: 18px; gap: 6px 8px; }
+    .service-occasions span { font-size: .68rem; }
+    .service-occasions i { font-size: .72rem; }
+    .service-feature-content .text-button { margin-top: 20px; }
+
+    .bridal { padding-top: 22px; }
+    .bridal-section-kicker { margin-bottom: 14px; }
+    .bridal-points div { padding: 14px 0; }
+    .bridal-points span { font-size: 1rem; }
+    .space-kicker { margin-bottom: 12px; }
 }
