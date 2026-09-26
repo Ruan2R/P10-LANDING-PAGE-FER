@@ -2193,3 +2193,100 @@ details p { max-width: 780px; padding: 0 48px 24px 0; color: var(--muted); font-
         margin-top: 8px;
     }
 }
+
+
+/* V37 — ACABAMENTO / MOBILE-FIRST / PERFORMANCE VISUAL */
+
+/* O Hero mobile ganha uma escala fluida menor para nunca cortar MAQUIAGEM,
+   preservando o impacto tipográfico sem encostar nas bordas. */
+@media (max-width: 560px) {
+    .hero-copy {
+        width: min(100%, 34rem);
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(3.25rem, 11.8vw, 4.05rem);
+        line-height: .90;
+        letter-spacing: -.04em;
+        max-width: 100%;
+    }
+
+    .hero-copy > p:not(.hero-kicker) {
+        max-width: 34rem;
+        font-size: 1.05rem;
+        line-height: 1.48;
+    }
+
+    .hero-actions {
+        gap: 10px;
+        margin-top: 22px;
+    }
+
+    .hero-actions > .button-outline {
+        min-height: 48px;
+        padding-inline: 18px;
+    }
+
+    .hero-cta-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 48px;
+        width: min(100%, 28rem);
+        gap: 9px;
+    }
+
+    .hero-cta-row .button-gold {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .hero-location-link {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+    }
+
+    /* Menos ruído nas legendas de resultado: a imagem já comunica o antes/depois. */
+    .look-grid article small {
+        letter-spacing: .10em;
+    }
+
+    /* Instagram continua como extensão do portfólio: mantém a faixa visual
+       contínua e evita que o cabeçalho domine as fotos. */
+    .instagram-band {
+        padding-top: 72px;
+        padding-bottom: 72px;
+    }
+}
+
+@media (max-width: 380px) {
+    .hero-copy h1 {
+        font-size: 3.05rem;
+        letter-spacing: -.038em;
+    }
+
+    .hero-copy > p:not(.hero-kicker) {
+        font-size: 1rem;
+    }
+
+    .hero-actions > .button-outline {
+        padding-inline: 16px;
+    }
+}
+
+/* No desktop, o serviço principal pode respirar um pouco mais sem mudar a
+   arquitetura já aprovada. */
+@media (min-width: 901px) {
+    .service-feature-content p {
+        max-width: 560px;
+    }
+
+    .mini-service > div {
+        padding: 34px;
+    }
+}
+
+/* Imagens da seção Espaço usam a versão WebP no HTML, mantendo a mesma
+   composição e reduzindo o custo de transferência. */
+.space-photo > img {
+    content-visibility: auto;
+}

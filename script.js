@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
         { src: "assets/make_5.webp", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
         { src: "assets/make_6.webp", alt: "Produção de maquiagem", label: "Maquiagem profissional" },
         { src: "assets/debutante_1.webp", alt: "Produção para debutante", label: "Debutante" },
-        { src: "assets/noiva_1.jfif", alt: "Produção de noiva", label: "Noivas" },
+        { src: "assets/noiva_1.webp", alt: "Produção de noiva", label: "Noivas" },
         { src: "assets/noiva_2.webp", alt: "Produção de noiva", label: "Noivas" }
     ];
 
